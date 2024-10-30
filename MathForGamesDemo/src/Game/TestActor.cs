@@ -23,7 +23,7 @@ namespace MathForGamesDemo
 
             Vector2 deltaMovement = movementInput.Normalized * Speed * (float)deltaTime;
 
-            if(deltaMovement.Magnitude == 0)
+            if(deltaMovement.Magnitude != 0)
                Transform.Translate(deltaMovement);
             Raylib.DrawRectangleV(Transform.GlobalPosition, Transform.GlobalScale * 100, Color.Blue);
             
