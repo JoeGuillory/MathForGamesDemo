@@ -65,14 +65,9 @@ namespace MathForGamesDemo
             long currentTime = 0;
             double deltaTime = 1;
             long lastTime = 0;
-            // Write the file
-            string path = "test.txt";
-            if (File.Exists(path))
-            {
-                Console.WriteLine("File here");
-            }
-            //Scene
-            Scene testScene = new TestScene();
+            
+                //Scene
+                Scene testScene = new TestScene();
             AddScene(testScene);
             while (!Raylib.WindowShouldClose())
             {

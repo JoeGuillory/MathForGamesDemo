@@ -8,6 +8,8 @@ namespace MathForGamesDemo
         {
             Game game = new Game();
             game.Run();
+            
+
         }
     }
 }
