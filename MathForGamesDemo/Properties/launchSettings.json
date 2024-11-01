@@ -2,7 +2,7 @@
   "profiles": {
     "MathForGamesDemo": {
       "commandName": "Project",
-      "workingDirectory": "C:\\Git Projects\\MathForGamesDemo\\MathForGamesDemo"
+      "workingDirectory": "C:\\Dev\\GitFolder\\MathForGamesDemo\\MathForGamesDemo"
     }
   }
 }

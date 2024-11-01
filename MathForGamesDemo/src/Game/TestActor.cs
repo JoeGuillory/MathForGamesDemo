@@ -28,5 +28,6 @@ namespace MathForGamesDemo
             Raylib.DrawRectangleV(Transform.GlobalPosition, Transform.GlobalScale * 100, Color.Blue);
             
         }
+        
     }
 }
