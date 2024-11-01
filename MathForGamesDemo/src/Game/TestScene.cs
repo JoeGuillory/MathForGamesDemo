@@ -11,9 +11,11 @@ namespace MathForGamesDemo
     {
         public override void Start()
         {
+            Actor tanktop;
             base.Start();
 
-            //Add our cool actor
+            Actor tankbottom = Actor.Instantiate(new TankBottom(), null,new Vector2(20,20),0, "tankTop");
+            tanktop = Actor.Instantiate(new TankTop(),tankbottom.Transform, new Vector2(10,10), 0, "tankbottom");
            
         }
 

@@ -10,7 +10,7 @@ namespace MathForGamesDemo
 {
     internal class TankTop : Actor
     {
-        public float TankTopScale { get; set; } = 50;
+        public float TankTopScale { get; set; } = 15;
         Texture2D tankTop;
         Rectangle tankTopDestination;
         Rectangle tankTopImage;
@@ -23,7 +23,7 @@ namespace MathForGamesDemo
 
             tankTop = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
             tankTopImage = new Rectangle(0,0, tankTop.Width, tankTop.Height);
-            Transform.LocalPosition = new Vector2(200, 200);
+            
             tankTopOrigin = new Vector2(Transform.GlobalScale.x * TankTopScale / 2 , 0);
 
 
