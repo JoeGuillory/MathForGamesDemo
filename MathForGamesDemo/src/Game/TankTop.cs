@@ -24,7 +24,8 @@ namespace MathForGamesDemo
             tankTop = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
             tankTopImage = new Rectangle(0,0, tankTop.Width, tankTop.Height);
             Transform.LocalPosition = new Vector2(200, 200);
-            
+            tankTopOrigin = new Vector2(Transform.GlobalScale.x * TankTopScale / 2 , 0);
+
 
 
 
