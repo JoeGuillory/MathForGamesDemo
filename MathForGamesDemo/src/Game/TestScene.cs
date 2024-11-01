@@ -16,10 +16,12 @@ namespace MathForGamesDemo
             //Add our cool actor
             Actor actor = new TestActor();
             Actor tankbottom = new TankBottom();
+            Actor tankTop = new TankTop();
             actor.Transform.LocalPosition = new Vector2(200, 200);
             AddActor(actor);
             AddActor(tankbottom);
             RemoveActor(actor);
+            AddActor(tankTop);
         }
 
     }

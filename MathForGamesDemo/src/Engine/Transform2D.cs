@@ -95,7 +95,11 @@ namespace MathForGamesDemo
 
         public float LocalRotationAngle
         {
-            get { return _localRotationAngle; }
+            get 
+            {
+                return _localRotationAngle; 
+            }
+           
         }
 
         public float GlobalRotationAngle
@@ -123,6 +127,10 @@ namespace MathForGamesDemo
         public void Rotate(float radians)
         {
             LocalRotation = Matrix3.CreateRotation(_localRotationAngle + radians);
+        }
+        public void SetAngle(float radians)
+        {
+            LocalRotation = Matrix3.CreateRotation(radians);
         }
 
         public void AddChild(Transform2D child)
