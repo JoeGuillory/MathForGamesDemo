@@ -34,13 +34,13 @@ namespace MathForGamesDemo
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-            tankTopDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale * TankTopScale);
+            tankTopDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale.x * 10 , Transform.GlobalScale.y * 20);
 
 
             Movement(deltaTime);
 
 
-            Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination, tankTopOrigin,-1 * (float)(Transform.GlobalRotationAngle /Math.PI) * 180 - 90, Color.White);
+            Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination, tankTopOrigin ,-1 * (float)(Transform.LocalRotationAngle /Math.PI) * 180 - 90, Color.White);
             Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);
 
         }
