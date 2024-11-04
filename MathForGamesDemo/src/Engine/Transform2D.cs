@@ -95,17 +95,19 @@ namespace MathForGamesDemo
 
         public float LocalRotationAngle
         {
-            get 
+            get
             {
-                return _localRotationAngle; 
+                return _localRotationAngle;
             }
-           
+
         }
 
         public float GlobalRotationAngle
         {
             get { return (float)Math.Atan2(_globalMatrix.m01, _globalMatrix.m00); }
         }
+        public Transform2D Parent { get => _parent; }
+        public Transform2D[] Children { get => _children; }
 
         public Transform2D(Actor owner)
         {

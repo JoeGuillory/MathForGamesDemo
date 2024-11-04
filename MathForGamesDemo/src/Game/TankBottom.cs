@@ -13,7 +13,7 @@ namespace MathForGamesDemo
         public float Speed { get; set; } = 50;
         public float RotateSpeed { get; set; } = 2;
 
-        public float TankScale = 25;
+        public static float TankScale = 25;
         
         Texture2D tankBottom = new Texture2D();
         Rectangle tankDestination;
@@ -23,6 +23,9 @@ namespace MathForGamesDemo
         Vector2 offset;
         
 
+        
+        
+
         public override void Start()
         {
             base.Start();
@@ -30,17 +33,21 @@ namespace MathForGamesDemo
             tankBottom = Raylib.LoadTexture(@"res\largepng\tankBody_blue.png");
             tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2,Transform.GlobalScale.y * TankScale / 2);
             tankImage = new Rectangle(0,0, tankBottom.Width,tankBottom.Height);
-           
+            
+
         }
 
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
             
+            
 
             Movement(deltaTime);
             tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
             //Draw Tank
+
+           
             Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter, -1 * (float)((Transform.GlobalRotationAngle / Math.PI) * 180) + 135  * RotateSpeed, Color.White);
             Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);
            
