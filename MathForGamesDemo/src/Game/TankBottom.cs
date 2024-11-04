@@ -9,11 +9,7 @@ namespace MathForGamesDemo
 {
     internal class TankBottom : Actor
     {
-        /// <summary>
-        /// Sets the starting position.
-        /// The offset is already applied so it will use the middle of the tank
-        /// </summary>
-       
+        
         public float Speed { get; set; } = 50;
         public float RotateSpeed { get; set; } = 2;
 

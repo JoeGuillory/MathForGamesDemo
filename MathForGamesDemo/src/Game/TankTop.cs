@@ -23,8 +23,7 @@ namespace MathForGamesDemo
 
             tankTop = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
             tankTopImage = new Rectangle(0,0, tankTop.Width, tankTop.Height);
-            
-            tankTopOrigin = new Vector2(Transform.GlobalScale.x * TankTopScale / 2 , 0);
+            tankTopOrigin = new Vector2(Transform.GlobalScale.x * 10 / 2 , 0);
 
 
 
@@ -40,7 +39,7 @@ namespace MathForGamesDemo
             Movement(deltaTime);
 
 
-            Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination, tankTopOrigin ,-1 * (float)(Transform.LocalRotationAngle /Math.PI) * 180 - 90, Color.White);
+            Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination, tankTopOrigin ,(float)(Transform.LocalRotationAngle /Math.PI) * 180 - 90, Color.White);
             Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);
 
         }
