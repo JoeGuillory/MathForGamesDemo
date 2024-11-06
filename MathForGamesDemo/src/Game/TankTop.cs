@@ -11,6 +11,7 @@ namespace MathForGamesDemo
     internal class TankTop : Actor
     {
         public float TankTopScale { get; set; } = 15;
+        
         Texture2D tankTop;
         Rectangle tankTopDestination;
         Rectangle tankTopImage;
@@ -21,8 +22,9 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
+
            
-            
+
             tankTop = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
             tankTopImage = new Rectangle(0,0, tankTop.Width, tankTop.Height);
             tankTopOrigin = new Vector2(Transform.GlobalScale.x * 10 / 2 , 0);
@@ -45,8 +47,9 @@ namespace MathForGamesDemo
             Movement(deltaTime);
 
 
-            Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle /Math.PI) * 180 - 90, Color.White);
-            //Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
+            Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle * 180 /Math.PI) - 90, Color.White);
+            Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
+            Raylib.DrawText("Tank Top: " + (float)(Transform.GlobalRotationAngle * 180 / Math.PI), 30, 60, 20, Color.Black);
 
         }
 
@@ -55,12 +58,11 @@ namespace MathForGamesDemo
           Vector2 mouse = Transform.GlobalPosition - new Vector2(Raylib.GetMouseX(),Raylib.GetMouseY());
 
             Transform.SetAngle((float)Math.Atan2(-1 * mouse.y, -1 * mouse.x));
-           
 
         }
 
 
-        
+
 
 
     }

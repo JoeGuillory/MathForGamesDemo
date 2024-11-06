@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace MathForGamesDemo
 {
@@ -15,6 +16,17 @@ namespace MathForGamesDemo
         Rectangle bulletImage;
         Rectangle bulletDestination;
         Vector2 bulletOrigin;
+        Vector2 tankBottomOffset; 
+        private float _bulletScale;
+        
+        public float BulletScale
+        { 
+            get => _bulletScale; 
+            set 
+            {
+                _bulletScale = value;
+            } 
+        }
         
 
         public override void Start()
@@ -23,6 +35,8 @@ namespace MathForGamesDemo
             bulletTexture = Raylib.LoadTexture(@"res\largepng\bulletBlue1_outline.png");
             bulletImage = new Rectangle(0, 0, bulletTexture.Width, bulletTexture.Height);
             bulletOrigin = new Vector2(0, 0);
+            tankBottomOffset = new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2);
+
         }
 
 
@@ -31,9 +45,9 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
             
             Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
-            bulletDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale * 7);
-            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin, (float)(Transform.GlobalRotationAngle * Math.PI) / 180 + 90, Color.White);
-            //Raylib.DrawLineV(Transform.GlobalPosition , Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
+            bulletDestination = new Rectangle(Transform.GlobalPosition + tankBottomOffset, Transform.GlobalScale * 7);
+            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin, (float)(Transform.GlobalRotationAngle * 180 / Math.PI), Color.White);
+            Raylib.DrawLineV(Transform.GlobalPosition , Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
         }
     }
 }

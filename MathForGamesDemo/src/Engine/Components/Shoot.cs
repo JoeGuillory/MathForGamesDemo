@@ -27,14 +27,11 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
             
            if (Raylib.IsMouseButtonPressed(MouseButton.Left))
-            {
-              Actor.Instantiate(new Bullet(), null, Owner.Transform.GlobalPosition + _offest, (float)(Owner.Transform.GlobalRotationAngle * Math.PI) / 180, "Bullet");
+           { 
+              Actor.Instantiate(new Bullet(), null, Owner.Transform.GlobalPosition, -1 * (float)(Owner.Transform.GlobalRotationAngle * 180 / Math.PI) , "Bullet");
 
-            }
-              //  Game.CurretScene.AddActor(new Bullet());
-            //Actor.Instantiate(new Bullet(), null, Owner.Transform.GlobalPosition + _offest, (float)(Owner.Transform.GlobalRotationAngle * Math.PI) / 180, "Bullet");
-
-
+           }
+            
         }
 
 
