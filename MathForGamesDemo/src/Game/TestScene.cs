@@ -11,8 +11,7 @@ namespace MathForGamesDemo
 {
     internal class TestScene : Scene
     {
-        Actor tankbottom;
-        Actor tanktop;
+       
 
         public override void Start()
         {

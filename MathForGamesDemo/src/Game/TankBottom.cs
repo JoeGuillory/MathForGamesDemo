@@ -23,12 +23,14 @@ namespace MathForGamesDemo
         Vector2 offset;
         
 
+
         
         
 
         public override void Start()
         {
             base.Start();
+            
             offset = new Vector2((Transform.LocalScale.x * TankScale) / 2, (Transform.LocalScale.y * TankScale) / 2);
             tankBottom = Raylib.LoadTexture(@"res\largepng\tankBody_blue.png");
             tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2,Transform.GlobalScale.y * TankScale / 2);
@@ -42,7 +44,7 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
             
             
-
+            
             Movement(deltaTime);
             tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
             //Draw Tank
@@ -72,5 +74,7 @@ namespace MathForGamesDemo
                 Transform.Rotate(RotateSpeed * (float)deltaTime);
 
         }
+
+        
     }
 }

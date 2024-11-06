@@ -30,7 +30,7 @@ namespace MathForGamesDemo
 
 
 
-
+           
         }
 
         public override void Update(double deltaTime)
