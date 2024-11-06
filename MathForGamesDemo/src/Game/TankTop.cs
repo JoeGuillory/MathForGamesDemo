@@ -44,7 +44,7 @@ namespace MathForGamesDemo
 
 
             Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle /Math.PI) * 180 - 90, Color.White);
-            Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
+            //Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
 
         }
 

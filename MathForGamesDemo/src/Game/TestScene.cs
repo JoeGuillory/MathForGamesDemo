@@ -19,8 +19,8 @@ namespace MathForGamesDemo
             base.Start();
            
 
-            //Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(25/2, 25/2), 0, "Tank");
-            //Actor tanktop = Actor.Instantiate(new TankTop(), tankbottom.Transform, new Vector2(0,0),0, "Tank");
+            Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(25/2, 25/2), 0, "Tank");
+            Actor tanktop = Actor.Instantiate(new TankTop(), tankbottom.Transform, new Vector2(0,0),0, "Tank");
             Actor bullet = Actor.Instantiate(new Bullet(), null, new Vector2(0, 0), 0, "Bullet");
 
 

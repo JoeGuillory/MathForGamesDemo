@@ -19,7 +19,7 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-            bulletTexture = Raylib.LoadTexture(@"res\largepng\bulletBlue1.png");
+            bulletTexture = Raylib.LoadTexture(@"res\largepng\bulletBlue1_outline.png");
             bulletImage = new Rectangle(0, 0, bulletTexture.Width, bulletTexture.Height);
             bulletOrigin = new Vector2(0, 0);
         }
