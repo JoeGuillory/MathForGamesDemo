@@ -28,9 +28,11 @@ namespace MathForGamesDemo
             tankTopOrigin = new Vector2(Transform.GlobalScale.x * 10 / 2 , 0);
             tankBottomOffset = new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2);
 
+            //How to add component insert the component in <> then give the component a owner
+            AddComponent<Shoot>(new Shoot(this));
 
 
-           
+
         }
 
         public override void Update(double deltaTime)
@@ -39,7 +41,7 @@ namespace MathForGamesDemo
            
             tankTopDestination = new Rectangle(Transform.GlobalPosition + tankBottomOffset, Transform.GlobalScale.x * 10 , Transform.GlobalScale.y * 20);
 
-
+            
             Movement(deltaTime);
 
 

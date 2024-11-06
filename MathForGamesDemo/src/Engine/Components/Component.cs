@@ -11,7 +11,7 @@ namespace MathForGamesDemo
         private Actor _owner;
         private bool _enabled;
         private bool _started;
-        public Actor Owner { get => _owner; }
+        public Actor Owner { get => _owner; set => _owner = value; }
         public bool Enabled
         {
             get => _enabled;
@@ -32,7 +32,7 @@ namespace MathForGamesDemo
             }
         }
         public bool Started { get => _started; }
-        public Component(Actor owner)
+        public Component(Actor owner = null)
         {
             _owner = owner;
             _enabled = true;

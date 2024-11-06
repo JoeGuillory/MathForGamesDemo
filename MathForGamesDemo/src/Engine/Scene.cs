@@ -31,14 +31,14 @@ namespace MathForGamesDemo
         {
 
             //Update actors
-            foreach (Actor actor in _actors)
+            for(int i = 0; i<_actors.Count; i++)
             {
-                if (!actor.Started)
-                    actor.Start();
+                if (!_actors[i].Started)
+                    _actors[i].Start();
 
-                actor.Update(deltaTime);
-                if (actor.Collider != null)
-                    actor.Collider.Draw();
+                _actors[i].Update(deltaTime);
+                if (_actors[i].Collider != null)
+                    _actors[i].Collider.Draw();
             }
 
             // Check for collision

@@ -48,7 +48,7 @@ namespace MathForGamesDemo
             Movement(deltaTime);
             tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
             //Draw Tank
-
+            
            
             Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter, -1 * (float)((Transform.GlobalRotationAngle / Math.PI) * 180) + 135  * RotateSpeed, Color.White);
             //Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);

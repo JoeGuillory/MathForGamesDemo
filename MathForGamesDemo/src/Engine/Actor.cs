@@ -134,9 +134,10 @@ namespace MathForGamesDemo
             return component;
         }
 
-        public T AddComponent<T>() where T : Component
+        public T AddComponent<T>() where T : Component, new()
         {
-            T component = (T)new Component(this);
+            T component = new T();
+            component.Owner = this;
             return AddComponent(component);
         }
 
@@ -168,12 +169,14 @@ namespace MathForGamesDemo
                 }
                 else
                 {
+                    component.End();
                     componentRemoved = true;
                 }
             }
             //If a component was removed, assign temp over _components
             if (componentRemoved)
             {
+                
                 _components = temp;
             }
 
