@@ -27,9 +27,9 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
             
            if (Raylib.IsMouseButtonPressed(MouseButton.Left))
-           { 
-              Actor.Instantiate(new Bullet(), null, Owner.Transform.GlobalPosition, -1 * (float)(Owner.Transform.GlobalRotationAngle * 180 / Math.PI) , "Bullet");
-
+           {
+                Actor.Instantiate(new Bullet(), null, Owner.Transform.LocalPosition,Owner.Transform.LocalRotationAngle);
+                
            }
             
         }

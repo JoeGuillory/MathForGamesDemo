@@ -31,7 +31,7 @@ namespace MathForGamesDemo
             tankBottomOffset = new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2);
 
             //How to add component insert the component in <> then give the component a owner
-            AddComponent<Shoot>(new Shoot(this));
+            //AddComponent<Shoot>(new Shoot(this));
 
 
 

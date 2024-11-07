@@ -43,11 +43,11 @@ namespace MathForGamesDemo
         public Transform2D Transform { get; set; }
 
         public string Name { get; set; }
-
+       
         public Actor()
         {
             
-          Transform = new Transform2D(this);
+            Transform = new Transform2D(this);
             _components = new Component[0];
 
         }
@@ -61,10 +61,10 @@ namespace MathForGamesDemo
         {
             actor.Transform.LocalPosition = position;
             actor.Transform.Rotate(rotation);
-            actor.Name = name;
+            
             if (parent != null)
                 parent.AddChild(actor.Transform);
-
+            actor.Name = name;
             Game.CurretScene.AddActor(actor);
 
             return actor;

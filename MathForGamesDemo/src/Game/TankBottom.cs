@@ -25,7 +25,7 @@ namespace MathForGamesDemo
 
 
         
-        
+       
 
         public override void Start()
         {
@@ -42,7 +42,7 @@ namespace MathForGamesDemo
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-            Rectangle rec = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale);
+            
             
             
             Movement(deltaTime);
@@ -50,9 +50,9 @@ namespace MathForGamesDemo
             //Draw Tank
             
            
-            Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter,(float)((Transform.GlobalRotationAngle * 180 / Math.PI)) - 90, Color.White);
+            Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter,-1 * (float)((Transform.GlobalRotationAngle * 180 / Math.PI)) - 90, Color.White);
             Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);
-            Raylib.DrawText("Tank Bottom: " + (float)(Transform.GlobalRotationAngle *180/ Math.PI), 30, 30, 20, Color.Black);
+            Raylib.DrawText("Tank Bottom: " + (float)(Transform.GlobalRotationAngle * 180/ Math.PI), 30, 30, 20, Color.Black);
         }
         /// <summary>
         /// Contains the movement functions
