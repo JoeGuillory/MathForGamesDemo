@@ -45,8 +45,8 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
             
             Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
-            bulletDestination = new Rectangle(Transform.GlobalPosition + tankBottomOffset, Transform.GlobalScale * 7);
-            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin, (float)(Transform.GlobalRotationAngle * 180 / Math.PI), Color.White);
+            bulletDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale * 7);
+            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin,0, Color.White);
             Raylib.DrawLineV(Transform.GlobalPosition , Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
         }
     }
