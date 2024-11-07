@@ -42,17 +42,17 @@ namespace MathForGamesDemo
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-            
+           
             
             
             Movement(deltaTime);
             tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
             //Draw Tank
+
             
-           
             Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter,-1 * (float)((Transform.GlobalRotationAngle * 180 / Math.PI)) - 90, Color.White);
             Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);
-            Raylib.DrawText("Tank Bottom: " + (float)(Transform.GlobalRotationAngle * 180/ Math.PI), 30, 30, 20, Color.Black);
+            //Raylib.DrawText("Tank Bottom: " + (float)(Transform.GlobalRotationAngle * 180/ Math.PI), 30, 30, 20, Color.Black);
         }
         /// <summary>
         /// Contains the movement functions
@@ -67,11 +67,12 @@ namespace MathForGamesDemo
             if (Raylib.IsKeyDown(KeyboardKey.S) && !Raylib.IsKeyDown(KeyboardKey.W))
                 Transform.Translate(Transform.Forward * Speed * (float)deltaTime * reverse);
 
+            if (Raylib.IsKeyDown(KeyboardKey.D) && !Raylib.IsKeyDown(KeyboardKey.A))
+                Transform.Rotate(RotateSpeed * (float)deltaTime);
+
             if (Raylib.IsKeyDown(KeyboardKey.A) && !Raylib.IsKeyDown(KeyboardKey.D))
                 Transform.Rotate(RotateSpeed * (float)deltaTime * reverse);
            
-            if (Raylib.IsKeyDown(KeyboardKey.D) && !Raylib.IsKeyDown(KeyboardKey.A))
-                Transform.Rotate(RotateSpeed * (float)deltaTime);
 
         }
 
