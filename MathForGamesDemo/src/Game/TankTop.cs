@@ -31,7 +31,7 @@ namespace MathForGamesDemo
             tankBottomOffset = new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2);
 
             //How to add component insert the component in <> then give the component a owner
-            //AddComponent<Shoot>(new Shoot(this));
+           //AddComponent<Shoot>(new Shoot(this));
 
 
 
@@ -48,17 +48,17 @@ namespace MathForGamesDemo
 
 
             Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle * 180 /Math.PI) - 90, Color.White);
-            Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
-            Raylib.DrawText("Tank Top: " + (float)(Transform.GlobalRotationAngle * 180 / Math.PI), 30, 60, 20, Color.Black);
+            //Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
+            
 
         }
 
         private void Movement(double deltaTime)
         {
           Vector2 mouse = Transform.GlobalPosition - new Vector2(Raylib.GetMouseX(),Raylib.GetMouseY());
-
+           
             Transform.SetAngle((float)Math.Atan2(-1 * mouse.y, -1 * mouse.x));
-
+            
         }
 
 
