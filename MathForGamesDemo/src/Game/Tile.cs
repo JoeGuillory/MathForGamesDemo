@@ -16,10 +16,10 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-            string path = @"res\largepng\tileGrass1.png";
-            AddComponent<Sprite>(new Sprite(this,path));
+            tileTexture = TextureManager.Textures["Tile"];
+            
 
-            tileTexture = GetComponent<Sprite>().GetTexture();
+            
             tileSource = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
             tileDestination = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
 

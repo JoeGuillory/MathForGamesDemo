@@ -18,7 +18,7 @@ namespace MathForGamesDemo
         {
             base.Start();
             Actor backgroung = Actor.Instantiate(new Tile(), null);
-            Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(0, 0), 0);
+            Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(200,200), 0);
             Actor tanktop = Actor.Instantiate(new TankTop(), tankbottom.Transform, new Vector2(0, 0), 0);
             tanktop.AddComponent<Shoot>(new Shoot(tanktop, tankbottom, new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2)));
            

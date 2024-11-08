@@ -35,7 +35,7 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-            bulletTexture = Raylib.LoadTexture(@"res\largepng\bulletBlue1_outline.png");
+            bulletTexture = TextureManager.Textures["Bullet"];
             BulletScale = 10;
            
 
@@ -53,7 +53,8 @@ namespace MathForGamesDemo
             Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
             
             bulletDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale * BulletScale);
-
+            //CheckOutofBound();
+                
             //Draws it
             Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin,Transform.LocalRotationAngle *180 /(float)Math.PI + 90 , Color.White);
         }
@@ -68,6 +69,22 @@ namespace MathForGamesDemo
         {
             
 
+        }
+
+        private void CheckOutofBound()
+        {
+            if (Transform.GlobalPosition.x > Raylib.GetScreenWidth() || Transform.GlobalPosition.x < 0)
+            {
+                Game.CurretScene.RemoveActor(this);
+
+                Console.WriteLine("Object Destroyed");
+            }
+            if (Transform.GlobalPosition.y > Raylib.GetScreenHeight() || Transform.GlobalPosition.y < 0)
+            {
+
+                Game.CurretScene.RemoveActor(this);
+                Console.WriteLine("Object Destroyed");
+            }
         }
     }
 }

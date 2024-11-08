@@ -13,7 +13,7 @@ namespace MathForGamesDemo
     {
         private static List<Scene> _scenes;
         private static Scene _currentScene;
-
+        private TextureManager _texturemanager;
         public static Scene CurretScene 
         { get => _currentScene; 
           set 
@@ -55,10 +55,12 @@ namespace MathForGamesDemo
                 return null;
             return _scenes[index];
         }
+        
         public void Run()
         {
             Raylib.InitWindow(800, 480, "Hello World");
-
+            _texturemanager = new TextureManager();
+            _texturemanager.LoadTextures();
             //Timing
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();

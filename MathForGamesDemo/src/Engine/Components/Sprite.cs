@@ -23,7 +23,7 @@ namespace MathForGamesDemo
 
         public override void Start()
         {
-            base.Start();
+           
             
             if (!Raylib.IsTextureReady(_texture))
                 _texture = Raylib.LoadTexture(_path);

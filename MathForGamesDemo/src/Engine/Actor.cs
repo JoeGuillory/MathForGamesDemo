@@ -70,7 +70,10 @@ namespace MathForGamesDemo
             return actor;
 
         }
-
+        /// <summary>
+        /// Removes any childern
+        /// </summary>
+        /// <param name="actor"></param>
         public static void Destroy(Actor actor)
         {
             // Remove all children

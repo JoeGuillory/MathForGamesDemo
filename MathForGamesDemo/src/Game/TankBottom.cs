@@ -30,9 +30,9 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-            
+
+            tankBottom = TextureManager.Textures["Bottom"];
             offset = new Vector2((Transform.LocalScale.x * TankScale) / 2, (Transform.LocalScale.y * TankScale) / 2);
-            tankBottom = Raylib.LoadTexture(@"res\largepng\tankBody_blue.png");
             tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2,Transform.GlobalScale.y * TankScale / 2);
             tankImage = new Rectangle(0,0, tankBottom.Width,tankBottom.Height);
             AddComponent<PlayerMovement>(new PlayerMovement(this, Speed, RotateSpeed));
