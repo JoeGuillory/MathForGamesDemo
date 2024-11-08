@@ -35,11 +35,15 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
+            string path = @"res\largepng\bulletBlue1_outline.png";
+            AddComponent<Sprite>(new Sprite(this, path));
+            
+            bulletTexture = GetComponent<Sprite>().GetTexture();
+            BulletScale = 10;
            
-            BulletScale = 20;
-            bulletTexture = Raylib.LoadTexture(@"res\largepng\bulletBlue1_outline.png");
+
             bulletImage = new Rectangle(0, 0, bulletTexture.Width, bulletTexture.Height);
-            bulletOrigin = new Vector2(0, 0);
+            bulletOrigin = new Vector2(0,0);
             bulletOffset = new Vector2(BulletScale / 2, BulletScale / 2);
             tankBottomOffset = new Vector2(TankBottom.TankScale, TankBottom.TankScale / 2);
         }
@@ -49,15 +53,28 @@ namespace MathForGamesDemo
         {
             base.Update(deltaTime);
             //Moves the bullet forward
-           // Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
+           Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
             
             
             bulletDestination = new Rectangle(Transform.GlobalPosition + tankBottomOffset - bulletOffset , Transform.GlobalScale * BulletScale);
             //Draws it
-            
-            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin,90 + Transform.LocalRotationAngle, Color.White);
+           
+
+            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin,90 + Transform.LocalRotationAngle *180 /(float)Math.PI, Color.White);
             Raylib.DrawCircleLinesV(bulletOrigin, 5, Color.Black);
-            Raylib.DrawLineV(Transform.GlobalPosition + tankBottomOffset  , Transform.GlobalPosition + tankBottomOffset  + (Transform.Forward * 100), Color.Black);
+            //Raylib.DrawLineV(Transform.GlobalPosition + bulletOffset ,bulletOffset + Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
+        }
+        public override void OnCollision(Actor other)
+        {
+            base.OnCollision(other);
+
+
+        }
+
+        public override void End()
+        {
+            
+
         }
     }
 }

@@ -17,7 +17,7 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-           
+            Actor backgroung = Actor.Instantiate(new Tile(), null);
             Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(0,0), 0);
 
             tankbottom.AddComponent<Shoot>(new Shoot(tankbottom));
