@@ -11,18 +11,19 @@ namespace MathForGamesDemo
     internal class CircleCollider : Collider
     {
         public float CollisionRadius { get; set; }
-
+        private Vector2 _offset;
         public CircleCollider(Actor owner, float radius) : base(owner)
         {
             CollisionRadius = radius;
         }
-
+        
         public override bool CheckCollisionCircle(CircleCollider collider)
         {
             float sumRadii = collider.CollisionRadius + CollisionRadius;
             float distance = Vector2.Distance(collider.Owner.Transform.GlobalPosition,Owner.Transform.GlobalPosition);
             return sumRadii >= distance;
         }
+        
         public override void Draw()
         {
             base.Draw();

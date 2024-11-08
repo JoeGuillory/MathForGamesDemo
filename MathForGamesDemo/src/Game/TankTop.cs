@@ -44,7 +44,8 @@ namespace MathForGamesDemo
 
         private void Movement(double deltaTime)
         {
-          Vector2 mouse = Transform.GlobalPosition - new Vector2(Raylib.GetMouseX(),Raylib.GetMouseY());
+            
+          Vector2 mouse = Transform.GlobalPosition - (Vector2)Raylib.GetMousePosition();
            
             Transform.SetAngle((float)Math.Atan2(-1 * mouse.y, -1 * mouse.x));
             

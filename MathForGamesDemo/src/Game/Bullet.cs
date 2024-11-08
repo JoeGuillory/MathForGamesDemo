@@ -12,7 +12,7 @@ namespace MathForGamesDemo
 {
     internal class Bullet : Actor
     {
-        private float _bulletSpeed = 150;
+        private float _bulletSpeed = 200;
         Texture2D bulletTexture = new Texture2D();
         Rectangle bulletImage;
         Rectangle bulletDestination;
@@ -42,7 +42,7 @@ namespace MathForGamesDemo
             bulletImage = new Rectangle(0, 0, bulletTexture.Width, bulletTexture.Height);
             bulletOrigin = new Vector2(BulletScale / 2, BulletScale / 2);
             bulletOffset = new Vector2(BulletScale/2, BulletScale / 2);
-            
+            Collider = new CircleCollider(this, 7);
         }
 
 

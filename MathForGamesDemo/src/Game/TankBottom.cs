@@ -10,7 +10,7 @@ namespace MathForGamesDemo
     internal class TankBottom : Actor
     {
         
-        public float Speed { get; set; } = 50;
+        public float Speed { get; set; } = 75;
         public float RotateSpeed { get; set; } = 2;
 
         public static float TankScale { get; set; } = 25;
@@ -35,17 +35,18 @@ namespace MathForGamesDemo
             tankBottom = Raylib.LoadTexture(@"res\largepng\tankBody_blue.png");
             tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2,Transform.GlobalScale.y * TankScale / 2);
             tankImage = new Rectangle(0,0, tankBottom.Width,tankBottom.Height);
-            
+            AddComponent<PlayerMovement>(new PlayerMovement(this, Speed, RotateSpeed));
             
         }
 
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
+            
            
             
             
-            Movement(deltaTime);
+            //Movement(deltaTime);
             tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
             
             
@@ -70,9 +71,7 @@ namespace MathForGamesDemo
 
             if (Raylib.IsKeyDown(KeyboardKey.A) && !Raylib.IsKeyDown(KeyboardKey.D))
                 Transform.Rotate(RotateSpeed * (float)deltaTime * reverse);
-            if (Raylib.IsKeyDown(KeyboardKey.LeftShift))
-                Speed = 75;
-            else Speed = 50;
+            
 
         }
 

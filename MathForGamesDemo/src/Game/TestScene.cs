@@ -21,7 +21,7 @@ namespace MathForGamesDemo
             Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(0, 0), 0);
             Actor tanktop = Actor.Instantiate(new TankTop(), tankbottom.Transform, new Vector2(0, 0), 0);
             tanktop.AddComponent<Shoot>(new Shoot(tanktop, tankbottom, new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2)));
-
+           
 
 
 

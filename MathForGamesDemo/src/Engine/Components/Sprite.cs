@@ -13,6 +13,7 @@ namespace MathForGamesDemo
     {
         private string _path;
         private Texture2D _texture;
+       
 
         public Texture2D Texture { get => _texture; }
         public Sprite(Actor onwer, string path) : base(onwer)
@@ -23,7 +24,7 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-
+            
             if (!Raylib.IsTextureReady(_texture))
                 _texture = Raylib.LoadTexture(_path);
 
@@ -31,9 +32,11 @@ namespace MathForGamesDemo
 
         public Texture2D GetTexture() 
         {
-            if(!Started)
-            Start();
-            return Texture; }
+            
+            return Texture;
+        }
+
+       
        
     }
 }
