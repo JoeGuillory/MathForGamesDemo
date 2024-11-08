@@ -22,18 +22,11 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-
-           
-
+          
             tankTop = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
             tankTopImage = new Rectangle(0,0, tankTop.Width, tankTop.Height);
             tankTopOrigin = new Vector2(Transform.GlobalScale.x * 10 / 2 , 0);
             tankBottomOffset = new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2);
-
-            //How to add component insert the component in <> then give the component a owner
-           //AddComponent<Shoot>(new Shoot(this));
-
-
 
         }
 
@@ -42,15 +35,11 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
            
             tankTopDestination = new Rectangle(Transform.GlobalPosition + tankBottomOffset, Transform.GlobalScale.x * 10 , Transform.GlobalScale.y * 20);
-
-            
+    
             Movement(deltaTime);
 
-
             Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle * 180 /Math.PI) - 90, Color.White);
-            //Raylib.DrawLineV(Transform.GlobalPosition + offset + tankBottomOffset, Transform.GlobalPosition + (Transform.Forward * 100), Color.Black);
             
-
         }
 
         private void Movement(double deltaTime)

@@ -20,7 +20,7 @@ namespace MathForGamesDemo
         Vector2 bulletOffset;
         Vector2 tankBottomOffset; 
         private float _bulletScale;
-        
+       
        
         public float BulletScale
         { 
@@ -40,9 +40,9 @@ namespace MathForGamesDemo
            
 
             bulletImage = new Rectangle(0, 0, bulletTexture.Width, bulletTexture.Height);
-            bulletOrigin = new Vector2(0,0);
-            bulletOffset = new Vector2(BulletScale/2,-1 * BulletScale / 2);
-            tankBottomOffset = new Vector2(TankBottom.TankScale, TankBottom.TankScale / 2);
+            bulletOrigin = new Vector2(BulletScale / 2, BulletScale / 2);
+            bulletOffset = new Vector2(BulletScale/2, BulletScale / 2);
+            
         }
 
 
@@ -50,16 +50,12 @@ namespace MathForGamesDemo
         {
             base.Update(deltaTime);
             //Moves the bullet forward
-            //Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
-            
+            Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
             
             bulletDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale * BulletScale);
-           
 
             //Draws it
-            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin, Transform.LocalRotationAngle *180 /(float)Math.PI + 90, Color.White);
-            Raylib.DrawCircleLinesV(bulletOrigin + Transform.GlobalPosition - bulletOffset, 5, Color.Black);
-            Raylib.DrawLineV(Transform.GlobalPosition - bulletOffset ,Transform.GlobalPosition -bulletOffset + (Transform.Forward * 100), Color.Black);
+            Raylib.DrawTexturePro(bulletTexture, bulletImage, bulletDestination, bulletOrigin,Transform.LocalRotationAngle *180 /(float)Math.PI + 90 , Color.White);
         }
         public override void OnCollision(Actor other)
         {

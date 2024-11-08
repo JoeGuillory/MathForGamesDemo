@@ -13,7 +13,7 @@ namespace MathForGamesDemo
         public float Speed { get; set; } = 50;
         public float RotateSpeed { get; set; } = 2;
 
-        public static float TankScale = 25;
+        public static float TankScale { get; set; } = 25;
         
         Texture2D tankBottom = new Texture2D();
         Rectangle tankDestination;
@@ -36,7 +36,7 @@ namespace MathForGamesDemo
             tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2,Transform.GlobalScale.y * TankScale / 2);
             tankImage = new Rectangle(0,0, tankBottom.Width,tankBottom.Height);
             
-
+            
         }
 
         public override void Update(double deltaTime)
@@ -47,12 +47,10 @@ namespace MathForGamesDemo
             
             Movement(deltaTime);
             tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
-            //Draw Tank
-
             
+            
+            //Draw Tank
             Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter,-1 * (float)((Transform.GlobalRotationAngle * 180 / Math.PI)) - 90, Color.White);
-            Raylib.DrawLineV(Transform.GlobalPosition + offset, Transform.GlobalPosition + offset + (Transform.Forward * 100), Color.Black);
-            //Raylib.DrawText("Tank Bottom: " + (float)(Transform.GlobalRotationAngle * 180/ Math.PI), 30, 30, 20, Color.Black);
         }
         /// <summary>
         /// Contains the movement functions
@@ -72,7 +70,9 @@ namespace MathForGamesDemo
 
             if (Raylib.IsKeyDown(KeyboardKey.A) && !Raylib.IsKeyDown(KeyboardKey.D))
                 Transform.Rotate(RotateSpeed * (float)deltaTime * reverse);
-           
+            if (Raylib.IsKeyDown(KeyboardKey.LeftShift))
+                Speed = 75;
+            else Speed = 50;
 
         }
 
