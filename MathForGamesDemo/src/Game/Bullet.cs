@@ -53,6 +53,8 @@ namespace MathForGamesDemo
             Transform.Translate(Transform.Forward * _bulletSpeed * (float)deltaTime);
             
             bulletDestination = new Rectangle(Transform.GlobalPosition, Transform.GlobalScale * BulletScale);
+            // Ask drew to fix the out of bound thing for the component
+            // need to get scene to not immidiatly remove the object
             //CheckOutofBound();
                 
             //Draws it
