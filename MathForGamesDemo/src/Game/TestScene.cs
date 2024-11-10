@@ -18,12 +18,13 @@ namespace MathForGamesDemo
         {
             base.Start();
             Actor background = Actor.Instantiate(new Tile(), null);
-            Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(200,200), 0);
+            Actor tankbottom = Actor.Instantiate(new TankBottom(), null, new Vector2(200, 200), 0);
             Actor tanktop = Actor.Instantiate(new TankTop(), tankbottom.Transform, new Vector2(0, 0), 0);
-            tanktop.AddComponent<PlayerShoot>(new PlayerShoot(tanktop, tankbottom, new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2)));
-          
-            
-            
+            //tanktop.AddComponent<PlayerShoot>(new PlayerShoot(tanktop, tankbottom, new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2)));
+            //Actor player = Actor.Instantiate(new Tank());
+
+
+
 
 
 

@@ -42,7 +42,7 @@ namespace MathForGamesDemo
            
 
             Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle * 180 /Math.PI) - 90, Color.White);
-            Raylib.DrawText(Transform.GlobalPosition.ToString(), 20, 20, 20, Color.Black);   
+              
         }
 
 

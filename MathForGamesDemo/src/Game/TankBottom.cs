@@ -27,10 +27,12 @@ namespace MathForGamesDemo
         {
             base.Start();
 
-            tankBottom = TextureManager.Textures["Bottom"];
-            offset = new Vector2((Transform.LocalScale.x * TankScale) / 2, (Transform.LocalScale.y * TankScale) / 2);
-            tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2,Transform.GlobalScale.y * TankScale / 2);
-            tankImage = new Rectangle(0,0, tankBottom.Width,tankBottom.Height);
+            //tankBottom = TextureManager.Textures["Bottom"];
+            //offset = new Vector2((Transform.LocalScale.x * TankScale) / 2, (Transform.LocalScale.y * TankScale) / 2);
+            //tankCenter = new Vector2(Transform.GlobalScale.x * TankScale / 2, Transform.GlobalScale.y * TankScale / 2);
+            //tankImage = new Rectangle(0, 0, tankBottom.Width, tankBottom.Height);
+
+            AddComponent<Sprite>(new Sprite(this,"Bottom",TankScale,-90,new Vector2(TankScale /2, TankScale / 2)));
             AddComponent<PlayerMovement>(new PlayerMovement(this, Speed, RotateSpeed));
             
         }
@@ -38,11 +40,11 @@ namespace MathForGamesDemo
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-            
-            tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
-            
+
+            //tankDestination = new Rectangle(Transform.GlobalPosition + offset, Transform.GlobalScale * TankScale);
+
             //Draw Tank
-            Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination,tankCenter,-1 * (float)((Transform.GlobalRotationAngle * 180 / Math.PI)) - 90, Color.White);
+            //Raylib.DrawTexturePro(tankBottom, tankImage, tankDestination, tankCenter, -1 * (float)((Transform.GlobalRotationAngle * 180 / Math.PI)) - 90, Color.White);
         }
        
     }

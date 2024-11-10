@@ -26,7 +26,7 @@ namespace MathForGamesDemo
 
             Owner.Transform.SetAngle((float)Math.Atan2(-1 * mouse.y, -1 * mouse.x));
 
-
+            
 
         }
     }

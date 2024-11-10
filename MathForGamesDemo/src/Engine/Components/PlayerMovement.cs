@@ -33,7 +33,7 @@ namespace MathForGamesDemo
                 Owner.Transform.Translate(Owner.Transform.Forward * _movementspeed * (float)deltaTime * reverse);
 
             if (Raylib.IsKeyDown(KeyboardKey.D) && !Raylib.IsKeyDown(KeyboardKey.A))
-                Owner.Transform.Rotate(_rotationspeed * (float)deltaTime);
+                Owner.Transform.Rotate(_rotationspeed * (float)deltaTime );
 
             if (Raylib.IsKeyDown(KeyboardKey.A) && !Raylib.IsKeyDown(KeyboardKey.D))
                 Owner.Transform.Rotate(_rotationspeed *(float)deltaTime * reverse);

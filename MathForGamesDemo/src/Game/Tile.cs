@@ -18,8 +18,6 @@ namespace MathForGamesDemo
             base.Start();
             tileTexture = TextureManager.Textures["Tile"];
             
-
-            
             tileSource = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
             tileDestination = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
 
