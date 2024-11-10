@@ -19,6 +19,7 @@ namespace MathForGamesDemo
         Vector2 offset;
         Vector2 tankBottomOffset;
         
+        
         public override void Start()
         {
             base.Start();
@@ -27,32 +28,22 @@ namespace MathForGamesDemo
             tankTopImage = new Rectangle(0,0, tankTop.Width, tankTop.Height);
             tankTopOrigin = new Vector2(Transform.GlobalScale.x * 10 / 2 , 0);
             tankBottomOffset = new Vector2(TankBottom.TankScale / 2, TankBottom.TankScale / 2);
-
+            AddComponent<LookAtMouse>(new LookAtMouse(this));
+            
         }
 
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-           
+
+            
             tankTopDestination = new Rectangle(Transform.GlobalPosition + tankBottomOffset, Transform.GlobalScale.x * 10 , Transform.GlobalScale.y * 20);
     
-            Movement(deltaTime);
+           
 
             Raylib.DrawTexturePro(tankTop, tankTopImage, tankTopDestination , tankTopOrigin,(float)(Transform.LocalRotationAngle * 180 /Math.PI) - 90, Color.White);
             Raylib.DrawText(Transform.GlobalPosition.ToString(), 20, 20, 20, Color.Black);   
         }
-
-        private void Movement(double deltaTime)
-        {
-            
-          Vector2 mouse = Transform.GlobalPosition - (Vector2)Raylib.GetMousePosition();
-           
-            Transform.SetAngle((float)Math.Atan2(-1 * mouse.y, -1 * mouse.x));
-            
-        }
-
-
-
 
 
     }

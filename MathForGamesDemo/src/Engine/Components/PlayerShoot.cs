@@ -8,16 +8,16 @@ using MathLibrary;
 
 namespace MathForGamesDemo
 {
-    internal class Shoot : Component
+    internal class PlayerShoot : Component
     {
         Vector2 _offset;
         Actor _owner2;
-        public Shoot(Actor owner, Vector2 offset) : base(owner)
+        public PlayerShoot(Actor owner, Vector2 offset) : base(owner)
         {
             _offset = new Vector2();
             _offset = offset;
         }
-        public Shoot(Actor owner, Actor owner2, Vector2 offset) : base(owner)
+        public PlayerShoot(Actor owner, Actor owner2, Vector2 offset) : base(owner)
         {
             _owner2 = owner2;
             _offset = offset;
