@@ -18,9 +18,10 @@ namespace MathForGamesDemo
         {
             base.Start();
             Actor background = Actor.Instantiate(new Tile(), null);
-            Actor playerTank = Actor.Instantiate(new PlayerTank(),null,new Vector2(200,200));
-            Actor enemyTank = Actor.Instantiate(new EnemyTank());
-            enemyTank.AddComponent<LookAt>(new LookAt(enemyTank, playerTank));
+            Actor playerTank = Actor.Instantiate(new PlayerTank(),null,new Vector2(50,50));
+            Actor followTank = Actor.Instantiate(new FollowTank(), playerTank.Transform);
+            //Actor enemyTank = Actor.Instantiate(new EnemyTank());
+            //enemyTank.AddComponent<LookAt>(new LookAt(enemyTank, playerTank));
             
             
 
