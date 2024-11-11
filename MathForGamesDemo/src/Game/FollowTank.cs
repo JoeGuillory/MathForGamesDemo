@@ -42,7 +42,7 @@ namespace MathForGamesDemo
         {
             base.Update(deltaTime);
             dummyactor.Transform.LocalPosition = this.Transform.GlobalPosition;
-            Raylib.DrawText(Transform.GlobalPosition.ToString(), 50, 50, 20, Color.Black);
+           
 
         }
     }
