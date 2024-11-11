@@ -12,15 +12,18 @@ namespace MathForGamesDemo
     {
         Vector2 _offset;
         Actor _owner2;
+        int _constructor = 0;
         public PlayerShoot(Actor owner, Vector2 offset) : base(owner)
         {
             _offset = new Vector2();
             _offset = offset;
+            _constructor = 1;
         }
         public PlayerShoot(Actor owner, Actor owner2, Vector2 offset) : base(owner)
         {
             _owner2 = owner2;
             _offset = offset;
+            _constructor = 2;
         }
 
         
@@ -30,11 +33,17 @@ namespace MathForGamesDemo
             
            if (Raylib.IsMouseButtonPressed(MouseButton.Left))
            {
-                if(_owner2 == null)
-                  Actor.Instantiate(new Bullet(), null, Owner.Transform.LocalPosition + _offset ,Owner.Transform.LocalRotationAngle);
-                else
-                    // Get the second owners position and the first owners rotation
-                    Actor.Instantiate(new Bullet(), null, _owner2.Transform.GlobalPosition + _offset, Owner.Transform.LocalRotationAngle);
+                switch (_constructor)
+                {
+                    case 1:
+                        Actor.Instantiate(new Bullet(), null, Owner.Transform.LocalPosition + _offset ,Owner.Transform.LocalRotationAngle);
+                        break;
+                    case 2:
+                        // Get the second owners position and the first owners rotation
+                        Actor.Instantiate(new Bullet(), null, Owner.Transform.GlobalPosition + _offset, _owner2.Transform.LocalRotationAngle);
+                        break;
+                }
+                
             }
             
         }

@@ -42,7 +42,7 @@ namespace MathForGamesDemo
             bulletImage = new Rectangle(0, 0, bulletTexture.Width, bulletTexture.Height);
             bulletOrigin = new Vector2(BulletScale / 2, BulletScale / 2);
             bulletOffset = new Vector2(BulletScale/2, BulletScale / 2);
-            Collider = new CircleCollider(this, 7);
+            Collider = new CircleCollider(this, 7, new Vector2(0,0));
         }
 
 
