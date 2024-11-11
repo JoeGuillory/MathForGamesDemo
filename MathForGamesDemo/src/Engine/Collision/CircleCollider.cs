@@ -12,6 +12,11 @@ namespace MathForGamesDemo
     {
         public float CollisionRadius { get; set; }
         private Vector2 _offset;
+        public CircleCollider(Actor owner, float radius) : base(owner)
+        {
+            CollisionRadius = radius;
+            
+        }
         public CircleCollider(Actor owner, float radius,Vector2 offset) : base(owner)
         {
             CollisionRadius = radius;
