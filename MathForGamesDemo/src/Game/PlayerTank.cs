@@ -49,7 +49,7 @@ namespace MathForGamesDemo
         {
             base.OnCollision(other);
 
-
+            
         }
        
     }

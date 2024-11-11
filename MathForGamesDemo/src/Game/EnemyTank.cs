@@ -46,6 +46,10 @@ namespace MathForGamesDemo
             base.OnCollision(other);
 
             Game.CurretScene.RemoveActor(this);
+                       
+            Game.CurretScene.RemoveActor(other);
+
+            
 
         }
 
