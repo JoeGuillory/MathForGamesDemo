@@ -11,14 +11,11 @@ namespace MathForGamesDemo
     internal class LookAtMouse : Component
     {
         int _constructor = 0;
-        Transform2D angle;
 
         public LookAtMouse(Actor owner)  : base(owner)
         {
             _constructor = 1;
         }
-       
-
 
         public override void Update(double deltaTime)
         {

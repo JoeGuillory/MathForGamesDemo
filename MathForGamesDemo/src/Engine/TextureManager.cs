@@ -22,16 +22,21 @@ namespace MathForGamesDemo
         public void LoadTextures()
         {
             Texture2D tile = Raylib.LoadTexture(@"res\largepng\tileGrass1.png");
-            Texture2D bullet = Raylib.LoadTexture(@"res\largepng\bulletBlue1_outline.png");
-            Texture2D tankbarrel = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
-            Texture2D tankbottom = Raylib.LoadTexture(@"res\largepng\tankBody_blue.png");
-
+            Texture2D bluebullet = Raylib.LoadTexture(@"res\largepng\bulletBlue1_outline.png");
+            Texture2D redbullet = Raylib.LoadTexture(@"res\largepng\bulletRed1_outline.png");
+            Texture2D bluetankbarrel = Raylib.LoadTexture(@"res\largepng\tankBlue_barrel2_outline.png");
+            Texture2D bluetankbottom = Raylib.LoadTexture(@"res\largepng\tankBody_blue.png");
+            Texture2D redtankbottom = Raylib.LoadTexture(@"res\largepng\tankBody_red.png");
+            Texture2D redtankbarrel = Raylib.LoadTexture(@"res\largepng\tankRed_barrel2_outline.png");
 
 
             _textures.Add("Tile", tile);
-            _textures.Add("Bullet", bullet);
-            _textures.Add("Barrel",tankbarrel);
-            _textures.Add("Bottom", tankbottom);
+            _textures.Add("bluebullet", bluebullet);
+            _textures.Add("redbullet", redbullet);
+            _textures.Add("bluebarrel",bluetankbarrel);
+            _textures.Add("bluebottom", bluetankbottom);
+            _textures.Add("redbarrel", redtankbarrel);
+            _textures.Add("redbottom", redtankbottom);
 
 
 

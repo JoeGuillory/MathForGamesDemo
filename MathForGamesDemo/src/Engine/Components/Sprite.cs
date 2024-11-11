@@ -21,6 +21,7 @@ namespace MathForGamesDemo
         Vector2 _textureOffset;
         Vector2 _vectorScaler;
         int _constructor;
+        string key2;
 
         //Constructor to scale by a float. Scales evenly
         public Sprite(Actor onwer, string key, float scaler,float startingRotation,Vector2 textureOrigin, Vector2 textureOffset) : base(onwer)
@@ -41,6 +42,25 @@ namespace MathForGamesDemo
             _textureOffset = textureOffset;
             _textureOrigin = textureOrigin;
             _constructor = 2;
+        }
+        /// <summary>
+        /// Selector constructor. Lets you select between two different textures
+        /// </summary>
+        public Sprite(Actor onwer,int selector,string key2, string key, float scaler, float startingRotation, Vector2 textureOrigin, Vector2 textureOffset) : base(onwer)
+        {
+            if(selector == 1)
+               _texture = TextureManager.Textures[key];
+            else
+               _texture = TextureManager.Textures[key2];
+              
+                  
+
+
+             _scaler = scaler;
+            _startingRotation = startingRotation;
+            _textureOffset = textureOffset;
+            _textureOrigin = textureOrigin;
+            _constructor = 1;
         }
 
         public override void Start()

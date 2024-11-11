@@ -11,6 +11,7 @@ namespace MathForGamesDemo
     internal class PlayerShoot : Component
     {
         Vector2 _offset;
+        
         Actor _owner2;
         int _constructor = 0;
         public PlayerShoot(Actor owner, Vector2 offset) : base(owner)
@@ -36,11 +37,11 @@ namespace MathForGamesDemo
                 switch (_constructor)
                 {
                     case 1:
-                        Actor.Instantiate(new Bullet(), null, Owner.Transform.LocalPosition + _offset ,Owner.Transform.LocalRotationAngle);
+                        Actor.Instantiate(new Bullet(1), null, Owner.Transform.LocalPosition + _offset ,Owner.Transform.LocalRotationAngle);
                         break;
                     case 2:
                         // Get the second owners position and the first owners rotation
-                        Actor.Instantiate(new Bullet(), null, Owner.Transform.GlobalPosition + _offset, _owner2.Transform.LocalRotationAngle);
+                        Actor.Instantiate(new Bullet(1), null, Owner.Transform.GlobalPosition + _offset, _owner2.Transform.LocalRotationAngle);
                         break;
                 }
                 

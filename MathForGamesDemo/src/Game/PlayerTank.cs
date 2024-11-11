@@ -11,7 +11,7 @@ namespace MathForGamesDemo
     internal class PlayerTank : Actor
     {
         public float Speed { get; set; } = 75;
-        public float RotationSpeed { get; set; } = 5;
+        public float RotationSpeed { get; set; } = 2;
         public float StartingRotation { get; set; } = -90;
         public float Scale { get; set; } = 25;
         Vector2 _offset;
@@ -30,11 +30,12 @@ namespace MathForGamesDemo
             _bottomorigin = new Vector2(Scale / 2, Scale / 2);
             _toporigin = new Vector2(10/2,0);
             Collider = new CircleCollider(this, Scale/2,_offset);
+            
             AddComponent<PlayerMovement>(new PlayerMovement(this, Speed, RotationSpeed));
             AddComponent<LookAtMouse>(new LookAtMouse(dummyactor));
-            AddComponent<Sprite>(new Sprite(this,"Bottom",Scale,StartingRotation,_bottomorigin,_offset));
-            AddComponent<Sprite>(new Sprite(dummyactor, "Barrel", _vectorScaler, StartingRotation,_toporigin, _offset));
-            AddComponent<PlayerShoot>(new PlayerShoot(this,dummyactor, _offset));
+            AddComponent<Sprite>(new Sprite(this,"bluebottom",Scale,StartingRotation,_bottomorigin,_offset));
+            AddComponent<Sprite>(new Sprite(dummyactor, "bluebarrel", _vectorScaler, StartingRotation,_toporigin, _offset));
+            AddComponent<PlayerShoot>(new PlayerShoot(dummyactor,dummyactor, _offset));
 
         }
         public override void Update(double deltaTime)
@@ -50,6 +51,6 @@ namespace MathForGamesDemo
 
 
         }
-
+       
     }
 }

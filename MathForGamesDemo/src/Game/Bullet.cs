@@ -17,16 +17,22 @@ namespace MathForGamesDemo
         Vector2 _bulletOffset;
         Vector2 tankBottomOffset; 
         private float _bulletScale;
-       
+        private int _selectedbullet;
        
         public float BulletScale
-        { 
-            get => _bulletScale; 
-            set 
+        {
+            get => _bulletScale;
+            set
             {
                 _bulletScale = value;
-            } 
+            }
         }
+        public Bullet(int selectedbullet)
+        {
+            _selectedbullet = selectedbullet;
+        }
+        
+
         
 
         public override void Start()
@@ -36,11 +42,9 @@ namespace MathForGamesDemo
             BulletScale = 10;
             _bulletOrigin = new Vector2(BulletScale / 2, BulletScale / 2);
             _bulletOffset = new Vector2(0,0);
-           
 
-           
-
-            AddComponent<Sprite>(new Sprite(this,"Bullet", BulletScale, +90, _bulletOrigin, _bulletOffset));
+            AddComponent<Sprite>(new Sprite(this,_selectedbullet,"redbullet","bluebullet",BulletScale , +90, _bulletOrigin, _bulletOffset));
+            AddComponent<CheckOutOfBounds>(new CheckOutOfBounds(this));
             Collider = new CircleCollider(this, 7);
         }
 
@@ -57,29 +61,9 @@ namespace MathForGamesDemo
         {
             base.OnCollision(other);
 
-
+           
         }
 
-        public override void End()
-        {
-            
 
-        }
-
-        private void CheckOutofBound()
-        {
-            if (Transform.GlobalPosition.x > Raylib.GetScreenWidth() || Transform.GlobalPosition.x < 0)
-            {
-                Game.CurretScene.RemoveActor(this);
-
-                Console.WriteLine("Object Destroyed");
-            }
-            if (Transform.GlobalPosition.y > Raylib.GetScreenHeight() || Transform.GlobalPosition.y < 0)
-            {
-
-                Game.CurretScene.RemoveActor(this);
-                Console.WriteLine("Object Destroyed");
-            }
-        }
     }
 }
