@@ -47,7 +47,7 @@ namespace MathForGamesDemo
 
             Game.CurretScene.RemoveActor(this);
                        
-            Game.CurretScene.RemoveActor(other);
+           
 
             
 

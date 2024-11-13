@@ -19,31 +19,31 @@ namespace MathForGamesDemo
         Vector2 _bottomorigin;
         Vector2 _toporigin;
 
-        Actor dummyactor;
+        
         public override void Start()
         {
             base.Start();
 
-            dummyactor = new Actor();
-            _offset = new Vector2(Scale / 2 +25, Scale / 2+25);
+            
+            _offset = new Vector2(Scale / 2 +25, Scale / 2 +25);
             _vectorScaler = new Vector2(10, 20);
             _bottomorigin = new Vector2(Scale / 2, Scale / 2);
             _toporigin = new Vector2(10 / 2, 0);
             Collider = new CircleCollider(this, Scale / 2, _offset);
 
             
-            AddComponent<LookAtMouse>(new LookAtMouse(dummyactor));
+            
             AddComponent<Sprite>(new Sprite(this, "bluebottom", Scale, StartingRotation, _bottomorigin, _offset));
-            AddComponent<Sprite>(new Sprite(dummyactor, "bluebarrel", _vectorScaler, StartingRotation, _toporigin, _offset));
-            AddComponent<PlayerShoot>(new PlayerShoot(dummyactor, dummyactor, _offset));
-
+            AddComponent<Sprite>(new Sprite(this, "bluebarrel", _vectorScaler, StartingRotation, _toporigin, _offset));
+            Transform.LocalPosition = Transform.GlobalPosition;
+            //AddComponent<PlayerShoot>(new PlayerShoot(this,_offset));
         }
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
-            dummyactor.Transform.LocalPosition = this.Transform.GlobalPosition;
-           
+            
 
+            
         }
     }
 }

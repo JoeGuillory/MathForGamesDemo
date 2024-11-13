@@ -72,8 +72,9 @@ namespace MathForGamesDemo
             //Scene
             Scene testScene = new TestScene();
             Scene mainMenu = new MainMenu();
-            AddScene(mainMenu);    
-            AddScene(testScene);
+            Scene levelOne = new LevelOne();
+            AddScene(mainMenu);
+            AddScene(levelOne);
             CurretScene = mainMenu;
             while (!Raylib.WindowShouldClose())
             {
