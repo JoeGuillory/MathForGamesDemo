@@ -59,6 +59,7 @@ namespace MathForGamesDemo
         public void Run()
         {
             Raylib.InitWindow(800, 480, "Hello World");
+            Raylib.SetTargetFPS(Raylib.GetMonitorRefreshRate(0));
             _texturemanager = new TextureManager();
             _texturemanager.LoadTextures();
             //Timing
@@ -68,9 +69,12 @@ namespace MathForGamesDemo
             double deltaTime = 1;
             long lastTime = 0;
             
-                //Scene
-                Scene testScene = new TestScene();
+            //Scene
+            Scene testScene = new TestScene();
+            Scene mainMenu = new MainMenu();
+            AddScene(mainMenu);    
             AddScene(testScene);
+            CurretScene = mainMenu;
             while (!Raylib.WindowShouldClose())
             {
 
@@ -78,9 +82,8 @@ namespace MathForGamesDemo
                
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.White);
-
-                testScene.Update(deltaTime);
-
+                CurretScene.Update(deltaTime);
+                
                 Raylib.EndDrawing();
 
 

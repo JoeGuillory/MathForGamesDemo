@@ -25,6 +25,7 @@ namespace MathForGamesDemo
         
         public override bool CheckCollisionCircle(CircleCollider collider)
         {
+            
             float sumRadii = collider.CollisionRadius + CollisionRadius;
             float distance = Vector2.Distance(collider.Owner.Transform.GlobalPosition + _offset,Owner.Transform.GlobalPosition);
             return sumRadii >= distance;
