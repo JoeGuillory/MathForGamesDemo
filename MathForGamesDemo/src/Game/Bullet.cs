@@ -45,7 +45,7 @@ namespace MathForGamesDemo
 
             AddComponent<Sprite>(new Sprite(this,_selectedbullet,"redbullet","bluebullet",BulletScale , +90, _bulletOrigin, _bulletOffset));
             AddComponent<CheckOutOfBounds>(new CheckOutOfBounds(this));
-            Collider = new CircleCollider(this, 5);
+            Collider = new CircleCollider(this, 10);
         }
 
 

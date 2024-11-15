@@ -59,7 +59,7 @@ namespace MathForGamesDemo
         public void Run()
         {
             Raylib.InitWindow(800, 480, "Hello World");
-            Raylib.SetTargetFPS(Raylib.GetMonitorRefreshRate(0));
+            
             _texturemanager = new TextureManager();
             _texturemanager.LoadTextures();
             //Timing
@@ -78,6 +78,8 @@ namespace MathForGamesDemo
             CurretScene = mainMenu;
             while (!Raylib.WindowShouldClose())
             {
+                if (Raylib.IsKeyPressed(KeyboardKey.G))
+                    Raylib.ToggleBorderlessWindowed();
 
                 currentTime = stopwatch.ElapsedMilliseconds;
                

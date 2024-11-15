@@ -33,7 +33,7 @@ namespace MathForGamesDemo
             
             AddComponent<Sprite>(new Sprite(this, "redbottom", Scale, StartingRotation, _bottomorigin, _offset));
             AddComponent<Sprite>(new Sprite(this, "redbarrel", _vectorScaler, StartingRotation, _toporigin, _offset));
-            AddComponent<EnemyShoot>(new EnemyShoot(this, _offset));
+            //AddComponent<EnemyShoot>(new EnemyShoot(this, _offset));
             
         }
         public override void Update(double deltaTime)
@@ -45,7 +45,11 @@ namespace MathForGamesDemo
         {
             base.OnCollision(other);
 
-            Game.CurretScene.RemoveActor(this);
+            if (other is Bullet)
+            {
+                Game.CurretScene.RemoveActor(this);
+                Game.CurretScene.RemoveActor(other);
+            }
                        
            
 

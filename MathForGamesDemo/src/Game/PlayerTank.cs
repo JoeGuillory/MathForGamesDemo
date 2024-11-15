@@ -35,14 +35,15 @@ namespace MathForGamesDemo
             AddComponent<LookAtMouse>(new LookAtMouse(dummyactor));
             AddComponent<Sprite>(new Sprite(this,"bluebottom",Scale,StartingRotation,_bottomorigin,_offset));
             AddComponent<Sprite>(new Sprite(dummyactor, "bluebarrel", _vectorScaler, StartingRotation,_toporigin, _offset));
-            AddComponent<PlayerShoot>(new PlayerShoot(dummyactor,dummyactor, _offset));
+            AddComponent<PlayerShoot>(new PlayerShoot(dummyactor, _offset));
             
         }
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
             dummyactor.Transform.LocalPosition = this.Transform.LocalPosition;
-            
+            Transform.LocalPosition = new Vector2(Raymath.Wrap(Transform.LocalPosition.x, 0, Raylib.GetScreenWidth()), Raymath.Wrap(Transform.LocalPosition.y, 0, Raylib.GetScreenHeight()));
+          
             
         }
         public override void OnCollision(Actor other)
