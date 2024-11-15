@@ -31,7 +31,7 @@ namespace MathForGamesDemo
             base.Start();
             _startingTimer = 5;
             _levelTimer = 240;
-            enemycount = 300;
+            enemycount = 100;
 
             
             
