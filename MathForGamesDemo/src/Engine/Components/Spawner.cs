@@ -18,7 +18,7 @@ namespace MathForGamesDemo
         public float LevelTimer { get => _levelTimer; }
         int enemycount;
         Actor _lookat;
-        float timer;
+        float _timer;
         public Spawner(Actor onwer) : base(onwer)
         {
 
@@ -30,10 +30,10 @@ namespace MathForGamesDemo
         public override void Start()
         {
             base.Start();
-            _startingTimer = 5;
+            _startingTimer = 10;
             _levelTimer = 240;
-            enemycount = 10;
-            timer = _levelTimer - 20;
+            enemycount = 30;
+            _timer = _levelTimer - 20;
             
             
           
@@ -58,11 +58,11 @@ namespace MathForGamesDemo
                     enemy.AddComponent<LookAt>(new LookAt(enemy, _lookat));
                     enemycount--;
                 }
-                if (Math.Truncate(_levelTimer) == timer)
+                if (Math.Truncate(_levelTimer) == _timer)
                 {
-                    if(timer != 0)
+                    if(_timer != 0)
                     {
-                        timer -= 20;
+                        _timer -= 20;
                         enemycount = 20;
                     }
 
@@ -77,6 +77,8 @@ namespace MathForGamesDemo
             }
 
 
+           if(_levelTimer == 0)
+                Raylib.DrawText("Good Job", (int)(Raylib.GetScreenWidth() / 2.5f), (int)(Raylib.GetScreenHeight() * .1f), 50, Color.Black);
 
 
 

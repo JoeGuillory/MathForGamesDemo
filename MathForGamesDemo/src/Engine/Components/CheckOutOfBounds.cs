@@ -22,14 +22,14 @@ namespace MathForGamesDemo
 
             if (Owner.Transform.GlobalPosition.x > Raylib.GetScreenWidth() || Owner.Transform.GlobalPosition.x < 0)
             {
-                Console.WriteLine("Object Destroyed");
+                //Console.WriteLine("Object Destroyed");
                 Game.CurretScene.RemoveActor(Owner);
 
             }
             if (Owner.Transform.GlobalPosition.y > Raylib.GetScreenHeight() || Owner.Transform.GlobalPosition.y < 0)
             {
 
-                Console.WriteLine("Object Destroyed");
+                //Console.WriteLine("Object Destroyed");
                 Game.CurretScene.RemoveActor(Owner);
             }
         }
