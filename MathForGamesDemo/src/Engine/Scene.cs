@@ -20,8 +20,7 @@ namespace MathForGamesDemo
 
         public bool RemoveActor(Actor actor)
         {
-            AddToRemovedActor(actor);
-            return true;
+           return AddToRemovedActor(actor);
         }
         public virtual void Start()
         {
@@ -74,9 +73,10 @@ namespace MathForGamesDemo
             }
         }
 
-        private void AddToRemovedActor(Actor actor)
+        private bool AddToRemovedActor(Actor actor)
         {
             _actorsToBeRemoved.Add(actor);
+            return true;
         }
         private void ActorToBeRemoved()
         {

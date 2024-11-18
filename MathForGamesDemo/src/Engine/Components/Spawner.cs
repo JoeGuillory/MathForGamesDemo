@@ -18,6 +18,7 @@ namespace MathForGamesDemo
         public float LevelTimer { get => _levelTimer; }
         int enemycount;
         Actor _lookat;
+        float timer;
         public Spawner(Actor onwer) : base(onwer)
         {
 
@@ -32,7 +33,7 @@ namespace MathForGamesDemo
             _startingTimer = 5;
             _levelTimer = 240;
             enemycount = 10;
-
+            timer = _levelTimer - 20;
             
             
           
@@ -42,10 +43,14 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
           
             if ( Math.Truncate(_startingTimer) != 0)
+            {
                 _startingTimer -= 1 * (float)deltaTime;
+                Raylib.DrawText(Math.Truncate(_startingTimer).ToString(), (int)(Raylib.GetScreenWidth() / 2.5f), (int)(Raylib.GetScreenHeight() * .1f), 50, Color.Black);
+            }
             if( Math.Truncate(_startingTimer) == 0)
             {
-                _levelTimer -= 1 * (float)deltaTime;
+                if(Math.Truncate(_levelTimer) != 0)
+                    _levelTimer -= 1 * (float)deltaTime;
 
                 if( enemycount != 0)
                 {
@@ -53,14 +58,23 @@ namespace MathForGamesDemo
                     enemy.AddComponent<LookAt>(new LookAt(enemy, _lookat));
                     enemycount--;
                 }
-                
+                if (Math.Truncate(_levelTimer) == timer)
+                {
+                    if(timer != 0)
+                    {
+                        timer -= 20;
+                        enemycount = 20;
+                    }
+
+                    
+                }
                 
                 
 
 
 
+                  Raylib.DrawText(Math.Truncate(_levelTimer).ToString(), (int)(Raylib.GetScreenWidth() / 2.5f), (int)(Raylib.GetScreenHeight() * .1f), 50, Color.Black);
             }
-
 
 
 

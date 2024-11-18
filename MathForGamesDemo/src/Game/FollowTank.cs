@@ -25,7 +25,7 @@ namespace MathForGamesDemo
             base.Start();
 
             
-            _offset = new Vector2(Scale / 2 +25, Scale / 2 +25);
+            _offset = new Vector2(40,40);
             _vectorScaler = new Vector2(10, 20);
             _bottomorigin = new Vector2(Scale / 2, Scale / 2);
             _toporigin = new Vector2(10 / 2, 0);
@@ -35,7 +35,7 @@ namespace MathForGamesDemo
             
             AddComponent<Sprite>(new Sprite(this, "bluebottom", Scale, StartingRotation, _bottomorigin, _offset));
             AddComponent<Sprite>(new Sprite(this, "bluebarrel", _vectorScaler, StartingRotation, _toporigin, _offset));
-            Transform.LocalPosition = Transform.GlobalPosition;
+            
             //AddComponent<PlayerShoot>(new PlayerShoot(this,_offset));
         }
         public override void Update(double deltaTime)
