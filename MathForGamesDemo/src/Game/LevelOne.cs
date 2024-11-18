@@ -10,7 +10,7 @@ namespace MathForGamesDemo
     internal class LevelOne : Scene
     {
 
-
+        Actor spawner;
         public override void Start()
         {
             base.Start();
@@ -21,9 +21,9 @@ namespace MathForGamesDemo
             Actor spawner = Actor.Instantiate(new Actor());
             spawner.AddComponent<Spawner>(new Spawner(spawner,playerTank));
 
-          
-
-            
+           
+   
         }
+
     }
 }

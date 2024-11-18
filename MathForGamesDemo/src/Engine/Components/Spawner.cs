@@ -14,8 +14,10 @@ namespace MathForGamesDemo
         
         private float _startingTimer;
         private float _levelTimer;
+        private bool _ended;
         public  float StartingTimer { get => _startingTimer; }
         public float LevelTimer { get => _levelTimer; }
+        public bool Ended { get => _ended; }
         int enemycount;
         Actor _lookat;
         float _timer;
@@ -31,7 +33,7 @@ namespace MathForGamesDemo
         {
             base.Start();
             _startingTimer = 10;
-            _levelTimer = 240;
+            _levelTimer = 10;
             enemycount = 30;
             _timer = _levelTimer - 20;
             
@@ -70,20 +72,13 @@ namespace MathForGamesDemo
                 }
                 
                 
-
-
-
                   Raylib.DrawText(Math.Truncate(_levelTimer).ToString(), (int)(Raylib.GetScreenWidth() / 2.5f), (int)(Raylib.GetScreenHeight() * .1f), 50, Color.Black);
+
             }
 
 
-           if(_levelTimer == 0)
-                Raylib.DrawText("Good Job", (int)(Raylib.GetScreenWidth() / 2.5f), (int)(Raylib.GetScreenHeight() * .1f), 50, Color.Black);
-
-
-
         }
-
+        //Gets a radom position
         private Vector2 RandomSpawn()
         {
             //top or bottom of the screen

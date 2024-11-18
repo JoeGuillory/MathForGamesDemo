@@ -12,7 +12,7 @@ namespace MathForGamesDemo
 {
     internal class Bullet : Actor
     {
-        private float _bulletSpeed = 200;
+        private float _bulletSpeed = 100;
         Vector2 _bulletOrigin;
         Vector2 _bulletOffset;
         Vector2 tankBottomOffset; 
@@ -45,7 +45,7 @@ namespace MathForGamesDemo
 
             AddComponent<Sprite>(new Sprite(this,_selectedbullet,"redbullet","bluebullet",BulletScale , +90, _bulletOrigin, _bulletOffset));
             AddComponent<CheckOutOfBounds>(new CheckOutOfBounds(this));
-            Collider = new CircleCollider(this, 10);
+            Collider = new CircleCollider(this, 10, _bulletOffset);
         }
 
 
@@ -60,6 +60,12 @@ namespace MathForGamesDemo
         public override void OnCollision(Actor other)
         {
             base.OnCollision(other);
+            
+            if ( other is EnemyTank)
+            {
+                Game.CurretScene.RemoveActor(other);
+                Game.CurretScene.RemoveActor(this);
+            }
 
             
            

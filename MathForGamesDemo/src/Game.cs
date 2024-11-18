@@ -70,12 +70,14 @@ namespace MathForGamesDemo
             long lastTime = 0;
             
             //Scene
-            Scene testScene = new TestScene();
+            
             Scene mainMenu = new MainMenu();
             Scene levelOne = new LevelOne();
+            Scene endScene = new EndScene();
             AddScene(mainMenu);
             AddScene(levelOne);
-            CurretScene = mainMenu;
+            AddScene(endScene);
+            CurretScene = GetScene(0);
             while (!Raylib.WindowShouldClose())
             {
                 if (Raylib.IsKeyPressed(KeyboardKey.G))
@@ -85,6 +87,7 @@ namespace MathForGamesDemo
                
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.White);
+
                 CurretScene.Update(deltaTime);
                 
                 Raylib.EndDrawing();

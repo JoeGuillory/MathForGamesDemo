@@ -46,8 +46,8 @@ namespace MathForGamesDemo
             {
                 Raylib.DrawRectanglePro(button, buttonpos / 2, 0, Color.DarkGreen);
                 Raylib.DrawText("Play", (int)(buttonpos.x * .85f), (int)(buttonpos.y / 1.8f), 50, Color.Black);
-               
-                Game.RemoveScene(this);
+
+                Game.CurretScene = Game.GetScene(1);
             }
 
         }
