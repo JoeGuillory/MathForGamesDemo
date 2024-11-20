@@ -32,7 +32,7 @@ namespace MathForGamesDemo
         {
             base.Update(deltaTime);
             time = stopWatch.Elapsed;
-
+            
             if( time.Seconds == 5)
             {
                 Actor.Instantiate(new Bullet(2), null, Owner.Transform.LocalPosition + _offset, Owner.Transform.LocalRotationAngle);

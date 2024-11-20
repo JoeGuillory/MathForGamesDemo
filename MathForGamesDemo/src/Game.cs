@@ -74,9 +74,11 @@ namespace MathForGamesDemo
             Scene mainMenu = new MainMenu();
             Scene levelOne = new LevelOne();
             Scene endScene = new EndScene();
+            Scene deathScene = new DeathScene();
             AddScene(mainMenu);
             AddScene(levelOne);
             AddScene(endScene);
+            AddScene(deathScene);
             CurretScene = GetScene(0);
             while (!Raylib.WindowShouldClose())
             {

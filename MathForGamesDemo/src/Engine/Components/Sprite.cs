@@ -56,7 +56,7 @@ namespace MathForGamesDemo
                   
 
 
-             _scaler = scaler;
+            _scaler = scaler;
             _startingRotation = startingRotation;
             _textureOffset = textureOffset;
             _textureOrigin = textureOrigin;

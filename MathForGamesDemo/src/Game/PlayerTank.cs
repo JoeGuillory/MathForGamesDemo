@@ -49,7 +49,12 @@ namespace MathForGamesDemo
         public override void OnCollision(Actor other)
         {
             base.OnCollision(other);
-
+            
+            if(other is EnemyTank)
+            {
+                Game.CurretScene.RemoveActor(this);
+                Game.CurretScene = Game.GetScene(3);
+            }
             
         }
        
