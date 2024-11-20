@@ -12,7 +12,7 @@ namespace MathForGamesDemo
 {
     internal class Bullet : Actor
     {
-        private float _bulletSpeed = 100;
+        private float _bulletSpeed = 200;
         Vector2 _bulletOrigin;
         Vector2 _bulletOffset;
         Vector2 tankBottomOffset; 

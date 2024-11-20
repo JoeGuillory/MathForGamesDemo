@@ -43,7 +43,7 @@ namespace MathForGamesDemo
             base.Update(deltaTime);
             dummyactor.Transform.LocalPosition = this.Transform.LocalPosition;
             Transform.LocalPosition = new Vector2(Raymath.Wrap(Transform.LocalPosition.x, 0, Raylib.GetScreenWidth()), Raymath.Wrap(Transform.LocalPosition.y, 0, Raylib.GetScreenHeight()));
-          
+            
             
         }
         public override void OnCollision(Actor other)

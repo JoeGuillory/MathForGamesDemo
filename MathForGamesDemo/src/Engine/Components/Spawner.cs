@@ -33,7 +33,7 @@ namespace MathForGamesDemo
         {
             base.Start();
             _startingTimer = 10;
-            _levelTimer = 10;
+            _levelTimer = 240;
             enemycount = 30;
             _timer = _levelTimer - 20;
             
@@ -73,7 +73,8 @@ namespace MathForGamesDemo
                 
                 
                   Raylib.DrawText(Math.Truncate(_levelTimer).ToString(), (int)(Raylib.GetScreenWidth() / 2.5f), (int)(Raylib.GetScreenHeight() * .1f), 50, Color.Black);
-
+                if (Math.Truncate(_levelTimer) == 0)
+                    Game.CurretScene = Game.GetScene(2);
             }
 
 
