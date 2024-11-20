@@ -40,6 +40,7 @@ namespace MathForGamesDemo
 
             if (Raylib.IsKeyDown(KeyboardKey.Q) && !Raylib.IsKeyDown(KeyboardKey.E))
                 Owner.Transform.LocalScale -= new Vector2(1, 1) * (float)deltaTime;
+
             if (!Raylib.IsKeyDown(KeyboardKey.Q) && Raylib.IsKeyDown(KeyboardKey.E))
                 Owner.Transform.LocalScale += new Vector2(1, 1) * (float)deltaTime;
         }
