@@ -14,6 +14,6 @@ This is a small survival tank game. The goal is to make it to the end
 - You can Press G to go fullscreen
 - Press Esc to exit the game
 ### What you need to do to play it
-Download the [Release](https://github.com/JoeGuillory/MathForGamesDemo/releases/tag/1.0) and extract the files. Run the exe file to play the game.
+Download the [Release](https://github.com/JoeGuillory/MathForGamesDemo/releases/tag/1.1) and extract the files. Run the exe file to play the game.
 
 
