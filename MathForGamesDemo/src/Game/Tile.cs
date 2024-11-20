@@ -19,8 +19,7 @@ namespace MathForGamesDemo
             tileTexture = TextureManager.Textures["Tile"];
             
             tileSource = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
-            tileDestination = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
-
+            
 
         }
 
@@ -29,6 +28,7 @@ namespace MathForGamesDemo
         public override void Update(double deltaTime)
         {
             base.Update(deltaTime);
+            tileDestination = new Rectangle(0,0,Raylib.GetScreenWidth(),Raylib.GetScreenHeight());
 
             
             Raylib.DrawTexturePro(tileTexture, tileSource, tileDestination,new Vector2(0,0),0,Color.White);
